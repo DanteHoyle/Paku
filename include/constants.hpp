@@ -6,7 +6,7 @@
 #define T_HEIGHT 36
 
 // width of the square tile in pixels
-#define T_SPRITE_WIDTH 32
+#define T_SPRITE_WIDTH 16
 
 // screen dimensions
 #define S_WIDTH (T_SPRITE_WIDTH * T_WIDTH)
@@ -14,5 +14,8 @@
 
 // frame limit
 #define FRAMELIMIT 60
+
+// PACMAN + 4 Ghosts
+#define MAX_ENTITES 5
 
 #endif

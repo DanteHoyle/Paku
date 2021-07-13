@@ -5,8 +5,8 @@
 // Created By: Dante Hoyle, 2021
 //
 
-#ifndef PAKU_H
-#define PAKU_H
+#ifndef PAKU_HPP
+#define PAKU_HPP
 
 #include <SFML/Graphics.hpp>
 #include "constants.hpp"
@@ -30,6 +30,7 @@ private:
 public:
     Paku();
     ~Paku();
+
     void run();
 };
 
