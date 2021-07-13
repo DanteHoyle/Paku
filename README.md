@@ -10,12 +10,16 @@ Tile Class
 : Contains sprite and state
 
 Board Class
-: Contains Tiles and has functions to reset board, make harder, spawn fruit on timer
+: Contains Tiles and has functions to reset board, make harder, spawn fruit on timer 28x36 tiles, original resolution 224x288
 
 Entity
-: x, y coordinates, speed vector, 
+: x, y coordinates, speed vector, Update Function
 
+Pacman : Entity
+: Player Controls in Update Function
 
+Ghost : Entity
+: Ghosts have their own unique algorithm for targeting Pacman. However there  will be a shared pathfinding algorithm
 
 ## Folder Structure
 ```
