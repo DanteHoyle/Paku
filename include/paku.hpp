@@ -30,6 +30,7 @@ private:
 public:
     Paku();
     ~Paku();
+    void run();
 };
 
 #endif

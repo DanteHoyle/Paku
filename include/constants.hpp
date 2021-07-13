@@ -2,17 +2,17 @@
 #define CONSTANTS_HPP
 
 // height in tiles
-extern const int T_WIDTH = 28;
-extern const int T_HEIGHT = 36;
+#define T_WIDTH 28
+#define T_HEIGHT 36
 
 // width of the square tile in pixels
-extern const int T_SPRITE_WIDTH = 16;
+#define T_SPRITE_WIDTH 32
 
 // screen dimensions
-extern const int S_WIDTH = T_SPRITE_WIDTH * T_WIDTH;
-extern const int S_HEIGHT = T_SPRITE_WIDTH * T_HEIGHT;
+#define S_WIDTH (T_SPRITE_WIDTH * T_WIDTH)
+#define S_HEIGHT (T_SPRITE_WIDTH * T_HEIGHT)
 
 // frame limit
-extern const int FRAMELIMIT = 60;
+#define FRAMELIMIT 60
 
 #endif

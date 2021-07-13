@@ -7,7 +7,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "paku.hpp"
-#include "constants.hpp"
 
 Paku::Paku()
 {
@@ -19,6 +18,11 @@ Paku::Paku()
 Paku::~Paku() 
 {
     delete window;
+}
+
+void Paku::run()
+{
+    mainLoop();
 }
 
 void Paku::mainLoop()

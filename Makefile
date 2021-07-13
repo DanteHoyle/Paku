@@ -1,44 +1,39 @@
-# Compiler Options
-PROG_NAME = hello_world
-CC = g++
-LD = g++
-CFLAG = -Wall
+# Compiler
+CXX := g++
 
-# Folder Locations
-BIN = ./bin
-BUILD = ./build
-SRC = ./src
-INCLUDE = ./include
-LIBARAY = ./lib
-SFML_LINK = -l sfml-graphics -l sfml-window -l sfml-system
+# Directories
+SRC_DIR := src
+OBJ_DIR := build
+BIN_DIR := bin
 
-# Generated Lists
-SRC_LIST = $(wildcard $(SRC)/*.cpp)
-OBJ_LIST = $(BUILD)/$(notdir $(SRC:.cpp=.o))
+# Flags
+CXXFLAGS := -Iinclude				# Preprocessor flag
+CPPFLAGS 	 := -Wall					# Extra Warnings
+LDFLAGS  := -Llib
+LDLIBS   := -lsfml-graphics -lsfml-window -lsfml-system
 
-all: $(PROG_NAME)
+# Program Name
+EXE := $(BIN_DIR)/Paku.exe
 
-compile:
-	$(CC) -c $(CFLAG) -I $(INCLUDE) $(SRC_LIST) -o $(OBJ_LIST) 
+# Files
+SRC := $(wildcard $(SRC_DIR)/*.cpp)
+OBJ := $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-$(PROG_NAME): compile
-	$(LD) $(OBJ_LIST) -o $(BIN)/$@ -L $(LIBARAY) $(SFML_LINK)
+RM := del
 
-.PHONY: clean
+.PHONY: all clean
+
+all: $(EXE)
+
+$(EXE): $(OBJ) | $(BIN_DIR)
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
+
+$(BIN_DIR) $(OBJ_DIR):
+	mkdir -p $@
+
 clean:
-#	if running windows
-	ifeq ($(OS),Windows_NT)
-		del $(OBJ_LIST) bin/$(PROG_NAME).exe
-#	if running linux
-	else
-		rm $(OBJ_LIST) bin/$(PROG_NAME).exe
-	endif
-
-# Old Implimentation
-# all: compile link
-
-# compile:
-# 	g++ -I src/include -c main.cpp
-
-# link:
-# 	g++ main.o -o main -L src/lib -l sfml-graphics -l sfml-window -l sfml-system 
+	$(RM) $(BIN_DIR)\*.exe
+	$(RM) $(OBJ_DIR)\*.o
