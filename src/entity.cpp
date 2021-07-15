@@ -19,7 +19,6 @@ Entity::Entity()
 {
     if (arrUsed >= MAX_ENTITES)
     {
-        #include <iostream>
         std::cerr << "Error: too many entities in the game world!\n";
     }
     else
