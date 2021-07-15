@@ -23,7 +23,7 @@ RM := del
 
 .PHONY: all clean
 
-all: $(EXE)
+all: clean $(EXE)
 
 $(EXE): $(OBJ) | $(BIN_DIR)
 	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@

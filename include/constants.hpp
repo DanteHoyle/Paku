@@ -2,20 +2,20 @@
 #define CONSTANTS_HPP
 
 // height in tiles
-#define T_WIDTH 28
-#define T_HEIGHT 36
+extern const int T_WIDTH;
+extern const int T_HEIGHT;
 
 // width of the square tile in pixels
-#define T_SPRITE_WIDTH 16
+extern const int T_SPRITE_WIDTH;
 
 // screen dimensions
-#define S_WIDTH (T_SPRITE_WIDTH * T_WIDTH)
-#define S_HEIGHT (T_SPRITE_WIDTH * T_HEIGHT)
+extern const int S_WIDTH;
+extern const int S_HEIGHT;
 
 // frame limit
-#define FRAMELIMIT 60
+extern const int FRAMELIMIT;
 
 // PACMAN + 4 Ghosts
-#define MAX_ENTITES 5
+extern const int MAX_ENTITES;
 
 #endif
