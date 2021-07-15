@@ -49,8 +49,10 @@ public:
     void initSprite();
 
     static void drawAllEntities(sf::RenderWindow*);
+    static void updateAllEntities();
 
     Entity();
+    ~Entity();
 };
 
 #endif

@@ -9,6 +9,9 @@
 #include "paku.hpp"
 #include "entity.hpp"
 
+// debug
+#include <iostream>
+
 Paku::Paku()
 {
     // setup window
