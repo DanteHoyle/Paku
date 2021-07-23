@@ -6,12 +6,12 @@
 //
 
 #include "entity.hpp"
+#include "pman.hpp"
 #include <iostream>         // for error handling
 
 // static members
 std::array<Entity*, MAX_ENTITES> Entity::entityList;
 int Entity::arrUsed = 0;
-
 
 // constructor function that adds entity to static list, and increased used 
 // number
@@ -34,6 +34,8 @@ Entity::Entity()
         dX = 0;
         dY = 0;
     }
+
+    std::cout << "Entity Init\n";
 }
 
 Entity::~Entity()
@@ -51,12 +53,10 @@ void Entity::draw(sf::RenderWindow* window)
 
 void Entity::initSprite()
 {
-    // temporary line
-    texture->loadFromFile("../resources/testSprite.png");
-
     sprite.setTexture(*texture);
-
     sprite.setOrigin(T_SPRITE_WIDTH, T_SPRITE_WIDTH);
+
+    sprite.setTextureRect(sf::IntRect(0, 0, ENT_WIDTH, ENT_WIDTH));
 }
 
 void Entity::drawAllEntities(sf::RenderWindow* window)
@@ -65,27 +65,45 @@ void Entity::drawAllEntities(sf::RenderWindow* window)
     for (int i = 0; i < arrUsed; ++i)
     {
         entityList.at(i)->draw(window);
-        std::cout << "drawing entity" << i << std::endl;
     }
 }
 
 void Entity::updateAllEntities()
 {
-    for (int i = 0; i < (arrUsed - 1); ++i)
+    for (int i = 0; i < arrUsed; ++i)
     {
         entityList.at(i)->update();
     }
 }
 
-
-
 void Entity::update()
 {
     sX += dX;
     sY += dY;
+    
+    updateAnimation();
 }
 
 void Entity::initTexture()
 {
     return;
+}
+
+void Entity::updateAnimation()
+{
+    if (animationTimer.getElapsedTime() >= animationSpeed)
+    {
+        std::cout << "New Animation!\n";
+
+        if (currentFrame == animationFrames - 1)
+            currentFrame = 0;
+        else
+            ++currentFrame;
+        
+        animationTimer.restart();
+
+        int horizontalOffset = ENT_WIDTH * currentFrame;
+
+        sprite.setTextureRect(sf::IntRect(horizontalOffset, 0, ENT_WIDTH, ENT_WIDTH));
+    }
 }

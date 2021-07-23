@@ -19,15 +19,22 @@ protected:
     int tX, tY;
     // screen position
     float sX, sY;
-
     // change in X and Y coordinate per frame;
     float dX, dY;
-
+    // SFML sprite
     sf::Sprite sprite;
     sf::Texture* texture;
-
+    // static list of all entities
     static std::array<Entity*, MAX_ENTITES> entityList;
     static int arrUsed;
+
+    // animation objects
+    sf::Clock animationTimer;
+    sf::Time animationSpeed;
+    int animationFrames;
+    int currentFrame;
+    
+    void updateAnimation();
 
 public:
     // accessors for positon

@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include "paku.hpp"
 #include "entity.hpp"
+#include "pman.hpp"
 
 // debug
 #include <iostream>
@@ -31,9 +32,11 @@ void Paku::run()
 
 void Paku::mainLoop()
 {
-    /* EVERYTHING BELOW HERE IS TEMPORARY*/
-    Entity test;
+    /* temp */
+    Pman test;
+    test.initTexture();
     test.initSprite();
+    /* /temp */
 
     while (window->isOpen())
     {
@@ -60,6 +63,7 @@ void Paku::handleEvents()
 void Paku::update()
 {
     handleEvents();
+    Entity::updateAllEntities();
 }
 
 void Paku::draw()

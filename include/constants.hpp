@@ -18,6 +18,9 @@ constexpr int FRAMELIMIT = 60;
 // PACMAN + 4 Ghosts
 constexpr int MAX_ENTITES = 5;
 
+// ENTITY WIDTH : Width of Pacman and the Ghosts sprites
+constexpr int ENT_WIDTH = 32;
+
 
 
 
