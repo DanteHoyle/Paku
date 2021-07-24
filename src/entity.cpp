@@ -78,10 +78,7 @@ void Entity::updateAllEntities()
 
 void Entity::update()
 {
-    sX += dX;
-    sY += dY;
-    
-    updateAnimation();
+    return;
 }
 
 void Entity::initTexture()
@@ -93,8 +90,6 @@ void Entity::updateAnimation()
 {
     if (animationTimer.getElapsedTime() >= animationSpeed)
     {
-        std::cout << "New Animation!\n";
-
         if (currentFrame == animationFrames - 1)
             currentFrame = 0;
         else
@@ -106,4 +101,17 @@ void Entity::updateAnimation()
 
         sprite.setTextureRect(sf::IntRect(horizontalOffset, 0, ENT_WIDTH, ENT_WIDTH));
     }
+}
+
+void Entity::updateTilePos()
+{
+    int oldX = tX,
+        oldY = tY;
+
+    tX = (sX / T_SPRITE_WIDTH);
+    tY = (sY / T_SPRITE_WIDTH);   
+
+    if (tX != oldX || tY != oldY)
+        std::cout << "Position: (" << tX << ", " << tY << "\n";
+    
 }

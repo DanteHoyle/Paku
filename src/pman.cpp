@@ -30,6 +30,7 @@ void Pman::update()
     sY += dY;
 
     updateAnimation();
+    updateTilePos();
 }
 
 void Pman::initTexture()

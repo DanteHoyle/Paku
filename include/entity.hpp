@@ -33,9 +33,12 @@ protected:
     sf::Time animationSpeed;
     int animationFrames;
     int currentFrame;
-    
-    void updateAnimation();
 
+    // tile functions
+    void updateTilePos();
+
+    // moves sprite to next frame if it is time
+    void updateAnimation();
 public:
     // accessors for positon
     int getTileX() { return tX; }
