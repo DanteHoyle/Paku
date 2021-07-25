@@ -31,6 +31,8 @@ public:
     Paku();
     ~Paku();
 
+    bool debug;
+
     void run();
 };
 

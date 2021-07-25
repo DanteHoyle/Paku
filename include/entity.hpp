@@ -39,6 +39,7 @@ protected:
 
     // moves sprite to next frame if it is time
     void updateAnimation();
+    
 public:
     // accessors for positon
     int getTileX() { return tX; }

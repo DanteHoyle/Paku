@@ -20,9 +20,7 @@ Pman::Pman()
     std::cout << "Pman Init\n";
 }
 
-Pman::~Pman()
-{
-}
+Pman::~Pman() {}
 
 void Pman::update()
 {

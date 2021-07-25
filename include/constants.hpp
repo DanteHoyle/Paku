@@ -21,7 +21,4 @@ constexpr int MAX_ENTITES = 5;
 // ENTITY WIDTH : Width of Pacman and the Ghosts sprites
 constexpr int ENT_WIDTH = 32;
 
-
-
-
 #endif
