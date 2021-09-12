@@ -10,6 +10,7 @@
 #include "entity.hpp"
 #include "pman.hpp"
 #include "tile.hpp"
+#include "debug.hpp"
 
 // debug
 #include <iostream>
@@ -42,17 +43,17 @@ void Paku::mainLoop()
     test.initTexture();
     test.initSprite();
 
+    debug = false;
+
     // board test code
 
     for (int i = 0; i < T_HEIGHT; ++i)
     {
         for (int j = 0; j < T_WIDTH; ++j)
         {
-            std::cout << "i: " << i << "\nj: " << j << "\n";
             b.at(i * T_WIDTH + j) = new Tile(j, i, 1, 1, false);
         }
     }
-    /* /temp */
 
     while (window->isOpen())
     {
@@ -91,8 +92,11 @@ void Paku::draw()
     //temp//
     for (int i = 0; i < 1008; i++)
     {
-        b.at(i)->draw(*window);
+        b.at(i)->draw(window);
     }
+
+    if (debug)
+        debug::drawGrid(window);
 
     Entity::drawAllEntities(window);
     window->display();

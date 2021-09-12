@@ -53,7 +53,7 @@ void Tile::initStatics()
     runOnce = true;
 }
 
-void Tile::draw(sf::RenderWindow& window)
+void Tile::draw(sf::RenderWindow* window)
 {
     sf::Sprite& s = tileSprites[tile];
 
@@ -65,5 +65,5 @@ void Tile::draw(sf::RenderWindow& window)
     // set position and rotaion
     s.setPosition(screenX + offset, screenY + offset);
     s.setRotation(angle);
-    window.draw(s);
+    window->draw(s);
 }

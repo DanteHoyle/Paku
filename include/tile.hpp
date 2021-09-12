@@ -18,6 +18,7 @@ private:
     int tX,         // tile x
         tY,         // tile y
         rotation,   // number 0 - 3 for rotation
+        fliped,     // 0 - none, 1 - horizontal, 2 - vertical, 3 - horizontal and vertical
         tile;
     
     static sf::Texture textureSheet;
@@ -35,7 +36,9 @@ public:
     ~Tile();
 
     bool getIsSolid() { return isSolid; }
-    void draw(sf::RenderWindow&);
+    void draw(sf::RenderWindow*);
+
+    static void createBoard();
 };
 
 #endif

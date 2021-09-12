@@ -9,8 +9,8 @@ constexpr int T_HEIGHT = 36;
 constexpr int T_SPRITE_WIDTH = 16;
 
 // screen dimensions
-constexpr int S_WIDTH = T_WIDTH * T_SPRITE_WIDTH;
-constexpr int S_HEIGHT = T_HEIGHT * T_SPRITE_WIDTH;
+constexpr int S_WIDTH = T_WIDTH * T_SPRITE_WIDTH;       // 448px
+constexpr int S_HEIGHT = T_HEIGHT * T_SPRITE_WIDTH;     // 576px
 
 // frame limit
 constexpr int FRAMELIMIT = 60;

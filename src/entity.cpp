@@ -112,6 +112,6 @@ void Entity::updateTilePos()
     tY = (sY / T_SPRITE_WIDTH);   
 
     if (tX != oldX || tY != oldY)
-        std::cout << "Position: (" << tX << ", " << tY << "\n";
+        std::cout << "Position: (" << tX << ", " << tY << ")\n";
     
 }
